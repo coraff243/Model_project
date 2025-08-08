@@ -16,6 +16,22 @@ from io import BytesIO
 import base64
 from datetime import datetime
 
+# Paths
+BASE_DIR = os.path.dirname(__file__)
+hf_model_path = os.path.join(BASE_DIR, "saved_model", "xlm-roberta-sentiment")
+prophet_model_path = os.path.join(BASE_DIR, "prophet_model.pkl")
+csv_path = os.path.join(BASE_DIR, "test_set.csv")
+
+# Load models
+tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
+model = AutoModelForSequenceClassification.from_pretrained(hf_model_path)
+
+with open(prophet_model_path, "rb") as f:
+    prophet_model = pickle.load(f)
+
+df = pd.read_csv(csv_path)
+
+
 # Streamlit app configuration
 st.set_page_config(
     page_title="Sentiment Analysis & Forecasting",
@@ -415,5 +431,6 @@ if section == "Visualizations":
 
 # Footer
 st.sidebar.markdown("---")
+
 
 
