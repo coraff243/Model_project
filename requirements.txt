@@ -1,17 +1,13 @@
-streamlit 
- pandas 
-import numpy 
+streamlit
+pandas
+numpy
 transformers
-prophet 
-import
-matplotlib.pyplot 
- seaborn 
-plotly.express 
- wordcloud 
-sklearn.metrics
+prophet
+matplotlib
+seaborn
+plotly
+wordcloud
+datasets
+scikit-learn
 torch
- re
-io 
-datetime 
-
 
